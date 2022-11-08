@@ -1,4 +1,4 @@
-# openkattisfabian
+# competitive-programming-learn
 
-just my open kattis answer that i solved.\
+just for a hobby and learning for the interview.\
 [Kattis Profile](https://open.kattis.com/users/fabian-habil)
