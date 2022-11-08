@@ -7,6 +7,6 @@ int main() {
     while (tc--) {
         int matches;
         cin >> matches;
-        
+
     }
 }

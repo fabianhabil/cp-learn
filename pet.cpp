@@ -1,14 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main(){
-    int n, x, sum;
-    n = 5;
-    for(int i = 0; i < 5; i++){
-        int sum = 0;
-        for(int j = 0; j < 5; j++){
-            cin >> x;
-            sum += x;
+int main() {
+    int winnerLine = 0;
+    int winnerPoints = 0;
+    for (int i = 0; i < 5; i++) {
+        int a, b, c, d;
+        cin >> a >> b >> c >> d;
+        int sum = a + b + c + d;
+        if (sum > winnerPoints) {
+            winnerLine = i + 1;
+            winnerPoints = sum;
         }
     }
+    cout << winnerLine << " " << winnerPoints << endl;
 }
