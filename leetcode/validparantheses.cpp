@@ -2,33 +2,25 @@
 using namespace std;
 
 bool isValid(string s) {
-    bool answer = false;
-    for (int i = 0; i < s.length() - 1; i++) {
-        if (s[i] == '(') {
-            if (s[i + 1] == ')') {
-                answer = true;
-            }
-            else answer = false;
+    stack <char> soal;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '(' || s[i] == '{' || s[i] == '[') {
+            soal.push(s[i]);
         }
-        if (s[i] == '[') {
-            if (s[i + 1] == ']') {
-                answer = true;
-            }
-            else answer = false;
-        }
-        if (s[i] == '{') {
-            if (s[i + 1] == '}') {
-                answer = true;
-            }
-            else answer = false;
+        else {
+            if (soal.empty()) return false;
+            else if (soal.top() != '(' && s[i] == ')') return false;
+            else if (soal.top() != '[' && s[i] == ']') return false;
+            else if (soal.top() != '{' && s[i] == '}') return false;
+            soal.pop();
         }
     }
-    return answer;
+    return soal.empty();
 }
 
 
 int main() {
-    string question = "(]";
+    string question = "({{{{}}}))";
     bool answer = isValid(question);
     cout << answer;
 }
