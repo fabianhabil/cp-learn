@@ -2,22 +2,25 @@
 using namespace std;
 
 vector <int> solve(vector<int>& numbers, int target) {
+    vector <int> answers;
     int n = numbers.size();
-    vector <int> answer;
     int l = 0;
     int r = n - 1;
     while (l != n && r >= 0) {
-        int sumTemp = numbers[l] + numbers[r];
-        cout << numbers[l] << " " << numbers[r] << endl;
-        if (l == r || sumTemp == target) break;
-        if (sumTemp > target) {
+        int remainder = numbers[l] + numbers[r];
+        if (l == r || remainder == target) break;
+        if (remainder > target) {
             r--;
         }
-        else l++;
+        else {
+            l++;
+        }
     }
-    answer.push_back(l + 1);
-    answer.push_back(r + 1);
-    return answer;
+
+    answers.push_back(l + 1);
+    answers.push_back(r + 1);
+    return answers;
+
 }
 
 int main() {
